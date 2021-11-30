@@ -104,5 +104,11 @@ class RGBXmasTree(SourceMixin, SPIDevice):
 
 if __name__ == '__main__':
     tree = RGBXmasTree()
-    
     tree.on()
+    tree.color = Color('red')
+
+    try:
+        while True:
+            tree.color += Hue(deg=1)
+        except KeyboardInterrupt:
+        tree.close()
